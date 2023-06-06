@@ -251,14 +251,14 @@ module.exports = {
                 };
             }
 
-            const network = new Network();
-            const addressExists = await network.checkAddressExists(params.recipient);
-            if (!addressExists.success) {
-                return {
-                    success: false,
-                    message: addressExists.message
-                };
-            }
+            // const network = new Network();
+            // const addressExists = await network.checkAddressExists(params.recipient);
+            // if (!addressExists.success) {
+            //     return {
+            //         success: false,
+            //         message: addressExists.message
+            //     };
+            // }
         
             let user = await Users.findOne({ where: { address: params.address } });
             if (!user) {
