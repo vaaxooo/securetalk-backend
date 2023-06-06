@@ -1,0 +1,27 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+
+
+<script>
+    const socket = io('ws://localhost:3000');
+
+
+    socket.on('connect', () => {
+        console.log('Connected to the WebSocket server');
+        // Additional logic to handle the connection
+    });
+
+    socket.emit('account:login', {
+        username: 'test',
+        password: 'test'
+    })
+
+    socket.on('account:login', (data) => {
+        console.log('Received message:', data);
+        // Additional logic to handle the incoming message
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Disconnected from the WebSocket server');
+        // Additional logic to handle the disconnection
+    });
+</script>
